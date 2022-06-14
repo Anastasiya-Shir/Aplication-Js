@@ -41,6 +41,11 @@ let buttonClear = document.getElementsByClassName("clear");
 
 let forms = document.getElementsByTagName("form");
 
+let count = 0;
+
+let Ameninites = document.getElementById("Ameninites");
+
+let types = document.getElementById("types");
 hotelsDateStart.addEventListener("keydown", (event) => {
 
   if (event.key == "Enter") {
@@ -63,7 +68,7 @@ hotelsDateEnd.addEventListener("keydown", (event) => {
     lessThenStartDate(splitString(hotelsDateStart.value, "-"), splitString(hotelsDateEnd.value, "-"));
   }
 })
-let count = 0;
+
 carsDateStart.addEventListener("keydown", (event) => {
 
   if (event.key == "Enter") {
@@ -72,8 +77,6 @@ carsDateStart.addEventListener("keydown", (event) => {
     splitString(inputValue, "-");
     console.log(count)
     validDate(array);
-    localStorage.setItem(count, carsDateStart.value);
-    showMessege()
 
   }
 })
@@ -114,14 +117,17 @@ flieghtsDateEnd.addEventListener("keydown", (event) => {
     validDate(array);
 
     lessThenStartDate(splitString(flieghtsDateStart.value, "-"), splitString(flieghtsDateEnd.value, "-"));
+    disabled();
   }
 })
+
 
 function splitString(string, separator) {
   array = string.split(separator);
 
   return array
 }
+
 function validDate(array) {
   if ((date.getFullYear() > array[0]) ||
     (date.getFullYear() >= array[0] && date.getMonth() + 1 > array[1])
@@ -169,10 +175,18 @@ navFlieghts.addEventListener("click", () => {
 })
 
 function disabled() {
-  if (flieghtsDateStart.value !== '') {
+  if (flieghtsDateStart.value.length > 0 && flieghtsDateEnd.value.length > 0 && from.value.length > 0 && to.value.length > 0) {
 
     buttons[0].disabled = false;
   }
+  if (hotelsDateEnd.value.length > 0 && hotelsDateEnd.value.length > 0 && city[0].value.length > 0 && country[0].value.length > 0 && Ameninites.value.length > 0) {
+    buttons[2].disabled = false;
+  }
+
+  if (carsDateEnd.value.length > 0 && carsDateEnd.value.length > 0 && city[1].value.length > 0 && country[1].value.length > 0 && types.value.length > 0) {
+    buttons[4].disabled = false;
+  }
+
 }
 
 fetch('https://namaztimes.kz/ru/api/country?type=json')
@@ -245,40 +259,92 @@ function disabledSelect() {
 }
 
 buttonClear[2].addEventListener('click', () => {
-
-  country[1].value = " ";
-
-  city[1].disabled = true;
+  forms[2].reset()
 })
 
 buttonClear[1].addEventListener('click', () => {
-  country[0].value = " ";
-
-  city[0].disabled = true;
+  forms[1].reset()
 })
 
 buttonClear[0].addEventListener('click', () => {
-  from.value = " ";
-  to.value = " ";
+  forms[0].reset()
 })
 
-let ulStorage = document.getElementById("local-storage");
-console.log(ulStorage)
 
-function showMessege() {
-  let lengthStorage = localStorage.length;
-  console.log(lengthStorage)
-  if (lengthStorage > 0) {
-    for (let i = 0; i < lengthStorage; i++) {
-      alert(localStorage.getItem(i))
-    }
+
+
+
+buttons[0].addEventListener("click", () => {
+  localStorage.setItem(count, [flieghtsDateStart.value, flieghtsDateEnd.value, from.value, to.value]);
+  count++;
+})
+
+buttons[2].addEventListener("click", () => {
+  localStorage.setItem(count, [hotelsDateStart.value, hotelsDateEnd.value, Ameninites.value, country[0].value, city[0].value]);
+  count++;
+})
+
+buttons[4].addEventListener("click", () => {
+  localStorage.setItem(count, [carsDateStart.value, carsDateEnd.value, types.value, country[1].value, city[1].value]);
+  count++;
+})
+
+forms[0].addEventListener('keydown', function (event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
   }
-}
+});
+
+forms[1].addEventListener('keydown', function (event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+  }
+});
+
+forms[2].addEventListener('keydown', function (event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+  }
+});
+
+from.addEventListener("keydown", (event) => {
+  if (event.key == "Enter") {
+
+    disabled();
+  }
+})
+
+to.addEventListener("keydown", (event) => {
+  if (event.key == "Enter") {
+
+    disabled();
+  }
+})
+
+city[0].addEventListener("keydown", (event) => {
+  if (event.key == "Enter") {
+
+    disabled();
+  }
+})
+city[1].addEventListener("keydown", (event) => {
+  if (event.key == "Enter") {
+
+    disabled();
+  }
+})
+country[1].addEventListener("keydown", (event) => {
+  if (event.key == "Enter") {
+
+    disabled();
+  }
+})
+
+country[0].addEventListener("keydown", (event) => {
+  if (event.key == "Enter") {
+
+    disabled();
+  }
+})
 
 
-// forms[0].addEventListener("submit", () => {
-//   hotelsDateStart.value;
-//   hotelsDateStart.value;
-//   from.value;
-//   to.value;
-// })
