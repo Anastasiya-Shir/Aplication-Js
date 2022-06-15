@@ -1,3 +1,10 @@
+import './styles/style.scss';
+import './img/logo.jpg';
+import './img/cancel.svg'
+import "bootstrap/js/dist/tab";
+import "bootstrap/js/dist/collapse";
+
+
 let hotelsDateStart = document.getElementById("hotelStartDate");
 
 let carsDateStart = document.getElementById("carsStartDate");
@@ -192,7 +199,7 @@ function disabled() {
 fetch('https://namaztimes.kz/ru/api/country?type=json')
   .then(response => response.json())
   .then(dataCountry => {
-    for (key in dataCountry) {
+    for (let key in dataCountry) {
       createCountry(dataCountry[key])
     }
   })
@@ -200,7 +207,7 @@ fetch('https://namaztimes.kz/ru/api/country?type=json')
 fetch("https://namaztimes.kz/ru/api/states?id=99")
   .then(response => response.json())
   .then(dataCity => {
-    for (key in dataCity) {
+    for (let key in dataCity) {
       createCity(dataCity[key])
     }
   })

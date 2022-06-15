@@ -1786,7 +1786,7 @@ textarea.form-control-lg {
   background-size: contain;
   border: 1px solid rgba(0, 0, 0, 0.25);
   appearance: none;
-  color-adjust: exact; }
+  /* color-adjust: exact; */ }
 
 .form-check-input[type="checkbox"] {
   border-radius: 0.25em; }
@@ -8270,3 +8270,5 @@ img {
   justify-content: center;
   text-align: center;
   border-radius: 10px; }
+
+ 

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body> 
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">       
+          <img alt="Logo" src="./img/logo.jpg">      
+        <a href="./history.html"><p> go to history</p></a>
+      </div>
+    </div>
+  </nav>
+
+
+    <div class="container">
+
+      <ul class="nav nav-tabs">
+
+        <li class="nav-item" id="navFlieghts">
+
+          <a class="nav-link active" href="#">flieghts</a>
+        </li>
+
+        <li class="nav-item" id="navhotels">
+
+          <a class="nav-link" href="#">hotels</a>
+        </li>
+
+        <li class="nav-item " id="navCars">
+
+          <a class="nav-link" href="#">cars</a>
+        </li>        
+      </ul>
+  
+
+
+      <div class="form_flieghts form">
+
+        <form class="row g-3" onsubmit="return false">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="flieghtsStartDate" >
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="flieghtsEndDate">
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">from</label>
+            <input type="text" class="form-control" id="from" > 
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress2" class="form-label">To</label>
+            <input type="text" class="form-control" id="to">
+          </div>  
+<div class="buttons">
+          
+            <button type="submit" class="btn btn-primary" disabled>Search</button>
+          
+
+            <button  class="btn btn-primary clear" >Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form_hotels form" onsubmit="return false">
+        
+        <form class="row g-3">
+
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="hotelStartDate">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="hotelsEndDate">
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Ameninites</label>
+            <input id="Ameninites" type="text" class="form-control" id="inputAddresss" placeholder="1234 Main St">
+          </div>
+
+         <div class="selects">
+
+          <select class="select country">            
+          </select>
+
+          <select class="select city" disabled>          
+          </select></div>
+
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary" disabled >Search</button>
+          
+
+         
+            <button  class="btn btn-primary clear" >Clear</button>
+             </div>     
+        </form>
+      </div>
+
+      <div class="form_cars form" onsubmit="return false">
+
+        <form class="row g-3">
+
+          <div class="col-md-6">
+
+            <label for="inputEmail" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="carsStartDate">            
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">end Date</label>
+            <input type="date" class="form-control" id="carsEndDate">
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Types</label>
+            <input id="types" type="text" class="form-control" id="inputAddress3" placeholder="Economy">
+          </div>
+
+          <div class="selects">
+            <select class="select country" >              
+            </select>
+
+            <select class="select city" disabled>            
+            </select></div>  
+
+        
+<div class="buttons">
+            <button type="submit" class="btn btn-primary"disabled >Search</button>
+          
+
+         
+            <button  class="btn btn-primary clear" >Clear</button>
+          </div>
+        </form>
+
+      </div>
+      </div>
+      
+<script src="./search.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
