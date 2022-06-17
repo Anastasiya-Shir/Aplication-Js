@@ -36,16 +36,16 @@ module.exports = {
 
     rules: [
       // CSS, PostCSS, and Sass
+      // {
+      //   test: /\.(scss|css)$/,
+      //   use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+
+      // },
+
+
       {
         test: /\.(scss|css)$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-
-      },
-
-
-      {
-        test: /\.(scss|css)$/,
-        use: [ExtractTextPlugin.loader, 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [ExtractTextPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
 
       // {
@@ -98,9 +98,9 @@ module.exports = {
     }),
     new ExtractTextPlugin({
       filename: "[name].css",
-      // experimentalUseImportModule: true,
-      // chunkFilename: "[id].css",
-      // ignoreOrder: false,
+      experimentalUseImportModule: true,
+      chunkFilename: "[id].css",
+      ignoreOrder: false,
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
