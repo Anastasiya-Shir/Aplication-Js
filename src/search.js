@@ -1,8 +1,9 @@
 import './styles/style.scss';
+
 import './img/logo.jpg';
 import './img/cancel.svg'
-import "bootstrap/js/dist/tab";
-import "bootstrap/js/dist/collapse";
+import "bootstrap";
+// import "bootstrap/js/dist/collapse";
 
 
 let hotelsDateStart = document.getElementById("hotelStartDate");

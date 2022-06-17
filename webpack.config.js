@@ -43,12 +43,25 @@ module.exports = {
       },
 
 
+      {
+        test: /\.(scss|css)$/,
+        use: [ExtractTextPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+
       // {
-      //   test: /\.(scss|css)$/,
-      //   use: [ExtractTextPlugin.loader, "style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      //   test: /\.css$/,
+      //   use: [
+      //     {
+      //       loader: ExtractTextPlugin.loader,
+      //       options: {
+      //         // you can specify a publicPath here
+      //         // by default it uses publicPath in webpackOptions.output
+      //         publicPath: " ",
+      //       },
+      //     },
+      //     "css-loader",
+      //   ],
       // },
-
-
 
       // JavaScript
       {
@@ -85,7 +98,9 @@ module.exports = {
     }),
     new ExtractTextPlugin({
       filename: "[name].css",
-
+      experimentalUseImportModule: true,
+      chunkFilename: "[id].css",
+      ignoreOrder: false,
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
@@ -93,7 +108,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'src/img', to: 'img' },
-        { from: 'src/styles', to: 'styles' },
+
       ]
     }),
   ]
