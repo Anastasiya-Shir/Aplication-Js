@@ -1,5 +1,4 @@
 import './styles/style.scss';
-
 import './img/logo.jpg';
 import './img/cancel.svg'
 import "bootstrap";
@@ -54,8 +53,8 @@ let count = 0;
 let Ameninites = document.getElementById("Ameninites");
 
 let types = document.getElementById("types");
-hotelsDateStart.addEventListener("keydown", (event) => {
 
+hotelsDateStart.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     let inputValue = hotelsDateStart.value;
 
@@ -66,31 +65,30 @@ hotelsDateStart.addEventListener("keydown", (event) => {
 })
 
 hotelsDateEnd.addEventListener("keydown", (event) => {
-
   if (event.key == "Enter") {
-
     let inputValue = hotelsDateEnd.value;
 
     splitString(inputValue, "-");
+
     validDate(array);
+
     lessThenStartDate(splitString(hotelsDateStart.value, "-"), splitString(hotelsDateEnd.value, "-"));
   }
 })
 
 carsDateStart.addEventListener("keydown", (event) => {
-
   if (event.key == "Enter") {
     let inputValue = carsDateStart.value;
     count++;
     splitString(inputValue, "-");
-    console.log(count)
-    validDate(array);
 
+    console.log(count)
+
+    validDate(array);
   }
 })
 
 carsDateEnd.addEventListener("keydown", (event) => {
-
   if (event.key == "Enter") {
     let inputValue = carsDateEnd.value;
 
@@ -105,8 +103,6 @@ carsDateEnd.addEventListener("keydown", (event) => {
 flieghtsDateStart.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     let inputValue = flieghtsDateStart.value;
-
-    console.log(inputValue);
 
     splitString(inputValue, "-");
 
@@ -125,6 +121,7 @@ flieghtsDateEnd.addEventListener("keydown", (event) => {
     validDate(array);
 
     lessThenStartDate(splitString(flieghtsDateStart.value, "-"), splitString(flieghtsDateEnd.value, "-"));
+
     disabled();
   }
 })
@@ -132,7 +129,6 @@ flieghtsDateEnd.addEventListener("keydown", (event) => {
 
 function splitString(string, separator) {
   array = string.split(separator);
-
   return array
 }
 
@@ -184,9 +180,9 @@ navFlieghts.addEventListener("click", () => {
 
 function disabled() {
   if (flieghtsDateStart.value.length > 0 && flieghtsDateEnd.value.length > 0 && from.value.length > 0 && to.value.length > 0) {
-
     buttons[0].disabled = false;
   }
+
   if (hotelsDateEnd.value.length > 0 && hotelsDateEnd.value.length > 0 && city[0].value.length > 0 && country[0].value.length > 0 && Ameninites.value.length > 0) {
     buttons[2].disabled = false;
   }
@@ -194,7 +190,6 @@ function disabled() {
   if (carsDateEnd.value.length > 0 && carsDateEnd.value.length > 0 && city[1].value.length > 0 && country[1].value.length > 0 && types.value.length > 0) {
     buttons[4].disabled = false;
   }
-
 }
 
 fetch('https://namaztimes.kz/ru/api/country?type=json')
@@ -252,8 +247,28 @@ function createCountry(data) {
 
     disabledSelect();
   })
-
 }
+
+
+
+flieghtsDateStart.addEventListener("click", () => {
+  if (flieghtsDateStart.value.length > 0) {
+    flieghtsDateEnd.disabled = false;
+  }
+})
+
+hotelsDateStart.addEventListener("click", () => {
+  if (hotelsDateStart.value.length > 0) {
+    hotelsDateEnd.disabled = false;
+  }
+})
+
+carsDateStart.addEventListener("click", () => {
+  if (carsDateStart.value.length > 0) {
+    carsDateEnd.disabled = false;
+  }
+})
+
 
 function disabledSelect() {
   if (country[0].value !== '') {
@@ -277,10 +292,6 @@ buttonClear[1].addEventListener('click', () => {
 buttonClear[0].addEventListener('click', () => {
   forms[0].reset()
 })
-
-
-
-
 
 buttons[0].addEventListener("click", () => {
   localStorage.setItem(count, [flieghtsDateStart.value, flieghtsDateEnd.value, from.value, to.value]);
@@ -335,12 +346,14 @@ city[0].addEventListener("keydown", (event) => {
     disabled();
   }
 })
+
 city[1].addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
 
     disabled();
   }
 })
+
 country[1].addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
 
@@ -354,5 +367,4 @@ country[0].addEventListener("keydown", (event) => {
     disabled();
   }
 })
-
 

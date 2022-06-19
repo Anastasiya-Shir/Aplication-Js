@@ -20,29 +20,21 @@
 
 
     <div class="container">
-
       <ul class="nav nav-tabs">
-
         <li class="nav-item" id="navFlieghts">
-
           <a class="nav-link active" href="#">flieghts</a>
         </li>
 
         <li class="nav-item" id="navhotels">
-
           <a class="nav-link" href="#">hotels</a>
         </li>
 
         <li class="nav-item " id="navCars">
-
           <a class="nav-link" href="#">cars</a>
         </li>        
       </ul>
-  
-
 
       <div class="form_flieghts form">
-
         <form class="row g-3" onsubmit="return false">
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Start Date</label>
@@ -51,7 +43,7 @@
 
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">End Date</label>
-            <input type="date" class="form-control" id="flieghtsEndDate">
+            <input type="date" class="form-control" id="flieghtsEndDate"  disabled>
           </div>
 
           <div class="col-12">
@@ -63,20 +55,16 @@
             <label for="inputAddress2" class="form-label">To</label>
             <input type="text" class="form-control" id="to">
           </div>  
-<div class="buttons">
-          
-            <button type="submit" class="btn btn-primary" disabled>Search</button>
-          
 
+          <div class="buttons">          
+            <button type="submit" class="btn btn-primary" disabled>Search</button>
             <button  class="btn btn-primary clear" >Clear</button>
           </div>
         </form>
       </div>
 
-      <div class="form_hotels form" onsubmit="return false">
-        
+      <div class="form_hotels form" onsubmit="return false">        
         <form class="row g-3">
-
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Start Date</label>
             <input type="date" class="form-control" id="hotelStartDate">
@@ -84,7 +72,7 @@
 
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">End Date</label>
-            <input type="date" class="form-control" id="hotelsEndDate">
+            <input type="date" class="form-control" id="hotelsEndDate"  disabled>
           </div>
 
           <div class="col-12">
@@ -93,36 +81,32 @@
           </div>
 
          <div class="selects">
-
-          <select class="select country">            
-          </select>
-
-          <select class="select city" disabled>          
+          <div class="country-cont">
+          <label for="select country" class="country-label">country</label>
+          <select class="select country ">            
           </select></div>
+          <div class="city-cont">
+          <label for="select country" class="country-label">city</label>
+          <select class="select city " disabled> </select></div>
+        </div>
 
           <div class="buttons">
             <button type="submit" class="btn btn-primary" disabled >Search</button>
-          
-
-         
             <button  class="btn btn-primary clear" >Clear</button>
-             </div>     
+          </div>     
         </form>
       </div>
 
       <div class="form_cars form" onsubmit="return false">
-
         <form class="row g-3">
-
           <div class="col-md-6">
-
             <label for="inputEmail" class="form-label">Start Date</label>
             <input type="date" class="form-control" id="carsStartDate">            
           </div>
 
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">end Date</label>
-            <input type="date" class="form-control" id="carsEndDate">
+            <input type="date" class="form-control" id="carsEndDate"  disabled>
           </div>
 
           <div class="col-12">
@@ -131,28 +115,27 @@
           </div>
 
           <div class="selects">
-            <select class="select country" >              
-            </select>
-
-            <select class="select city" disabled>            
-            </select></div>  
+            <div class="country-cont">
+            <label for="select country" class="country-label">country</label>
+            <select class="select country ">            
+            </select></div>
+            <div class="city-cont">
+            <label for="select country" class="country-label">city</label>
+            <select class="select city " disabled> </select></div>
+          </div>  
 
         
-<div class="buttons">
+          <div class="buttons">
             <button type="submit" class="btn btn-primary"disabled >Search</button>
-          
-
-         
             <button  class="btn btn-primary clear" >Clear</button>
           </div>
         </form>
-
       </div>
-      </div>
+    </div>
       
 <script src="./search.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</div>
-</body>
+    </div>
+  </body>
 </html>
