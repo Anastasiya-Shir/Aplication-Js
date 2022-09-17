@@ -1,5 +1,10 @@
-@import "~bootstrap/scss/bootstrap";
+//  @import "~bootstrap/scss/bootstrap";
 
+ @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+ 
+.body{
+  color:#008000;
+}
 .form{  
  display: flex;
  flex-direction: column; 
@@ -15,7 +20,8 @@ margin:50px;
 .form_cars{
   display: none;
 }
-.nav{  
+.nav{ 
+  margin: 4px; 
   display: flex;
   flex-direction: column;
 }
